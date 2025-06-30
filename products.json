@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "name": "Z FLIP AND Z FOLD 2024",
+        "description": "Latest foldable phones from SAMGEE ELETRICS",
+        "image_url": "https://buybot.neocities.org/img_6711%20(1).webp",
+        "shop_name": "SAMGEE ELETRICS",
+        "stars": 5,
+        "category": "Electronics"
+    },
+    {
+        "id": 2,
+        "name": "STANLEY CUPS",
+        "description": "Insulated tumblers for hot and cold beverages",
+        "image_url": "https://buybot.neocities.org/Stanley-cups-011024-tout-7122075a1e6a46a2a2bc84faca226f54.jpg",
+        "shop_name": "MOLLY.SHOP",
+        "stars": 4,
+        "category": "Drinkware"
+    },
+    {
+        "id": 3,
+        "name": "JONI'S BOTANICALS",
+        "description": "HOUSE PLANTS, POT PLANTS, SEEDS AND MUCH MORE",
+        "image_url": "https://buybot.neocities.org/us-homegoods-tile-1.jpg",
+        "shop_name": "Joni's Botanicals",
+        "stars": 3,
+        "category": "Home Goods"
+    },
+    {
+        "id": 4,
+        "name": "DELIGHT'S LIGHTS",
+        "description": "CHANDLIERS, DOWN LIGHTS, LAMPS AND MUCH MORE",
+        "image_url": "https://buybot.neocities.org/unnamed.jpg",
+        "shop_name": "Delight's Lights",
+        "stars": 3,
+        "category": "Home Goods"
+    },
+    {
+        "id": 5,
+        "name": "LEMORE SKIN",
+        "description": "THE ENTIRE ORGANIC REJUVINATION LEMORE RANGE",
+        "image_url": "https://buybot.neocities.org/cosmetics.webp",
+        "shop_name": "Lemore Skin",
+        "stars": 2,
+        "category": "Cosmetics"
+    }
+]
