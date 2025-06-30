@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuyBot - Home</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles to match the image precisely */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcefdc; /* Light beige from the image */
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .header {
+            background-color: #8c4c7c; /* Dark purple header */
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            border-radius: 0.5rem; /* Rounded corners for the header */
+            margin: 0.5rem; /* Small margin around header */
+            position: relative; /* For dropdown positioning */
+            z-index: 10; /* Ensure header is above other content */
+        }
+        .header .icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem; /* Added padding for touch target */
+            border-radius: 50%; /* Make icons round */
+            transition: background-color 0.3s ease;
+        }
+        .header .icon:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Slight hover effect */
+        }
+        .header .icons {
+            display: flex;
+            gap: 1.25rem; /* Space between icons */
+        }
+        .main-content {
+            padding: 1.25rem;
+        }
+        .home-label {
+            font-size: 0.9rem;
+            color: #6c6c6c; /* Grey text */
+            margin-bottom: 0.625rem;
+            text-transform: uppercase; /* Uppercase as in image */
+        }
+        h1 {
+            color: #8c4c7c; /* Dark purple heading */
+            font-size: 2.25rem; /* Large heading font size */
+            margin-bottom: 1.875rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            line-height: 1.2;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+        h1 .logo-small img {
+            width: 70px; /* Small logo size */
+            height: auto;
+        }
+        .top-sellers {
+            background-color: #8c4c7c; /* Dark purple background */
+            padding: 1rem;
+            border-radius: 0.5rem; /* Rounded corners */
+            margin-bottom: 2.5rem;
+            color: white;
+        }
+        .top-sellers h2 {
+            font-size: 1.375rem; /* Subheading font size */
+            margin-bottom: 1.25rem;
+            text-align: center;
+            font-weight: bold;
+        }
+        .product-grid {
+            display: flex;
+            gap: 1rem; /* Space between product items */
+            overflow-x: auto; /* Enable horizontal scrolling */
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            padding-bottom: 0.625rem; /* Space for scrollbar */
+        }
+        .product-item {
+            background-color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            flex-shrink: 0; /* Prevent shrinking */
+            width: 250px; /* Fixed width for each item */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+        }
+        .product-item img {
+            width: 100%;
+            height: 150px; /* Fixed image height */
+            object-fit: cover; /* Cover the area */
+        }
+        .product-details {
+            padding: 0.625rem;
+        }
+        .product-details h3 {
+            color: #8c4c7c;
+            font-size: 1.125rem;
+            margin-bottom: 0.3125rem;
+            font-weight: bold;
+        }
+        .product-details p {
+            color: #6c6c6c;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        .deals-section h2 {
+            color: #6c6c6c;
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            letter-spacing: 1px; /* Letter spacing as in image */
+            font-weight: bold;
+        }
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem; /* Space between buttons */
+            padding: 0 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+        .action-button {
+            display: block;
+            width: 100%;
+            padding: 1.125rem;
+            background-color: #8c4c7c; /* Dark purple button */
+            color: white;
+            text-align: center;
+            border-radius: 0.5rem;
+            font-size: 1.375rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .action-button:hover {
+            background-color: #7a3c6b; /* Darker on hover */
+        }
+        /* Navigation menu styling */
+        .nav-menu {
+            position: absolute;
+            top: 100%; /* Position below header */
+            left: 0;
+            width: 100%;
+            background-color: #7a3c6b; /* Darker purple for menu */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 0 0 0.5rem 0.5rem;
+            overflow: hidden;
+            display: none; /* Hidden by default */
+            z-index: 5; /* Below header, above main content */
+        }
+        .nav-menu.active {
+            display: block; /* Show when active */
+        }
+        .nav-menu a {
+            display: block;
+            padding: 1rem 1.25rem;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: background-color 0.2s ease;
+        }
+        .nav-menu a:last-child {
+            border-bottom: none;
+        }
+        .nav-menu a:hover {
+            background-color: #8c4c7c; /* Match header color on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <span class="icon" id="menuToggle">&#9776;</span> <!-- Hamburger menu icon -->
+        <div class="icons">
+            <span class="icon">&#128276;</span> <!-- Bell icon -->
+            <span class="icon">&#128278;</span> <!-- Share icon -->
+            <a href="shop.html" class="icon" style="color:white; text-decoration: none;">&#128269;</a> <!-- Search icon, linked to shop.html -->
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="nav-menu" id="mainNav">
+            <a href="homepage.html">Home</a>
+            <a href="merchantjoin.html">Merchant Join</a>
+            <a href="shop.html">Shop</a>
+            <a href="merchanttrain.html">Merchant Training</a>
+            <a href="admin.html">Admin</a>
+        </nav>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="main-content">
+        <div class="home-label">HOME</div>
+        <h1>
+            Mzansi's no.1<br>Merchant
+            <span class="logo-small"><img src="https://buybot.neocities.org/Pink%20Purple%20Modern%20Gradient%20Tech%20Logo.png" alt="BuyBot Logo"></span>
+        </h1>
+
+        <!-- Top Sellers Section -->
+        <div class="top-sellers rounded-lg p-4">
+            <h2 class="text-xl font-bold mb-5 text-white">THIS WEEK'S TOP SELLERS</h2>
+            <div class="product-grid">
+                <!-- Product Item 1: Z Flip and Z Fold -->
+                <div class="product-item rounded-lg shadow-md">
+                    <img src="https://buybot.neocities.org/img_6711%20(1).webp" alt="Z FLIP AND Z FOLD 2024" class="w-full h-40 object-cover rounded-t-lg">
+                    <div class="product-details p-3">
+                        <h3 class="text-purple-700 text-lg font-bold">Z FLIP AND Z FOLD 2024</h3>
+                        <p class="text-gray-600 text-sm">SAMGEE ELETRICS</p>
+                    </div>
+                </div>
+                <!-- Product Item 2: Stanley Cups -->
+                <div class="product-item rounded-lg shadow-md">
+                    <img src="https://buybot.neocities.org/Stanley-cups-011024-tout-7122075a1e6a46a2a2bc84faca226f54.jpg" alt="STANLEY CUPS" class="w-full h-40 object-cover rounded-t-lg">
+                    <div class="product-details p-3">
+                        <h3>STANLEY CUPS</h3>
+                        <p>MOLLY.SHOP</p>
+                    </div>
+                </div>
+                <!-- More product items can be added here following the same structure -->
+            </div>
+        </div>
+
+        <!-- Deals Section -->
+        <div class="deals-section text-center">
+            <h2 class="text-3xl font-bold text-gray-600 mb-10 tracking-wide">Deals all<br>DEZEMBA!!</h2>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="button-group px-5 mb-10">
+            <a href="merchantjoin.html" class="action-button rounded-lg text-xl font-bold transition-colors duration-300">Sell</a>
+            <a href="shop.html" class="action-button rounded-lg text-xl font-bold transition-colors duration-300">Shop</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuyBot - Home</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles to match the image precisely */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcefdc; /* Light beige from the image */
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .header {
+            background-color: #8c4c7c; /* Dark purple header */
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            border-radius: 0.5rem; /* Rounded corners for the header */
+            margin: 0.5rem; /* Small margin around header */
+            position: relative; /* For dropdown positioning */
+            z-index: 10; /* Ensure header is above other content */
+        }
+        .header .icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem; /* Added padding for touch target */
+            border-radius: 50%; /* Make icons round */
+            transition: background-color 0.3s ease;
+        }
+        .header .icon:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Slight hover effect */
+        }
+        .header .icons {
+            display: flex;
+            gap: 1.25rem; /* Space between icons */
+        }
+        .main-content {
+            padding: 1.25rem;
+        }
+        .home-label {
+            font-size: 0.9rem;
+            color: #6c6c6c; /* Grey text */
+            margin-bottom: 0.625rem;
+            text-transform: uppercase; /* Uppercase as in image */
+        }
+        h1 {
+            color: #8c4c7c; /* Dark purple heading */
+            font-size: 2.25rem; /* Large heading font size */
+            margin-bottom: 1.875rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            line-height: 1.2;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+        h1 .logo-small img {
+            width: 70px; /* Small logo size */
+            height: auto;
+        }
+        .top-sellers {
+            background-color: #8c4c7c; /* Dark purple background */
+            padding: 1rem;
+            border-radius: 0.5rem; /* Rounded corners */
+            margin-bottom: 2.5rem;
+            color: white;
+        }
+        .top-sellers h2 {
+            font-size: 1.375rem; /* Subheading font size */
+            margin-bottom: 1.25rem;
+            text-align: center;
+            font-weight: bold;
+        }
+        .product-grid {
+            display: flex;
+            gap: 1rem; /* Space between product items */
+            overflow-x: auto; /* Enable horizontal scrolling */
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            padding-bottom: 0.625rem; /* Space for scrollbar */
+        }
+        .product-item {
+            background-color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            flex-shrink: 0; /* Prevent shrinking */
+            width: 250px; /* Fixed width for each item */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+        }
+        .product-item img {
+            width: 100%;
+            height: 150px; /* Fixed image height */
+            object-fit: cover; /* Cover the area */
+        }
+        .product-details {
+            padding: 0.625rem;
+        }
+        .product-details h3 {
+            color: #8c4c7c;
+            font-size: 1.125rem;
+            margin-bottom: 0.3125rem;
+            font-weight: bold;
+        }
+        .product-details p {
+            color: #6c6c6c;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        .deals-section h2 {
+            color: #6c6c6c;
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            letter-spacing: 1px; /* Letter spacing as in image */
+            font-weight: bold;
+        }
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem; /* Space between buttons */
+            padding: 0 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+        .action-button {
+            display: block;
+            width: 100%;
+            padding: 1.125rem;
+            background-color: #8c4c7c; /* Dark purple button */
+            color: white;
+            text-align: center;
+            border-radius: 0.5rem;
+            font-size: 1.375rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .action-button:hover {
+            background-color: #7a3c6b; /* Darker on hover */
+        }
+        /* Navigation menu styling */
+        .nav-menu {
+            position: absolute;
+            top: 100%; /* Position below header */
+            left: 0;
+            width: 100%;
+            background-color: #7a3c6b; /* Darker purple for menu */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 0 0 0.5rem 0.5rem;
+            overflow: hidden;
+            display: none; /* Hidden by default */
+            z-index: 5; /* Below header, above main content */
+        }
+        .nav-menu.active {
+            display: block; /* Show when active */
+        }
+        .nav-menu a {
+            display: block;
+            padding: 1rem 1.25rem;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: background-color 0.2s ease;
+        }
+        .nav-menu a:last-child {
+            border-bottom: none;
+        }
+        .nav-menu a:hover {
+            background-color: #8c4c7c; /* Match header color on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <span class="icon" id="menuToggle">&#9776;</span> <!-- Hamburger menu icon -->
+        <div class="icons">
+            <span class="icon">&#128276;</span> <!-- Bell icon -->
+            <span class="icon">&#128278;</span> <!-- Share icon -->
+            <a href="shop.html" class="icon" style="color:white; text-decoration: none;">&#128269;</a> <!-- Search icon, linked to shop.html -->
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="nav-menu" id="mainNav">
+            <a href="homepage.html">Home</a>
+            <a href="merchantjoin.html">Merchant Join</a>
+            <a href="shop.html">Shop</a>
+            <a href="merchanttrain.html">Merchant Training</a>
+            <a href="admin.html">Admin</a>
+        </nav>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="main-content">
+        <div class="home-label">HOME</div>
+        <h1>
+            Mzansi's no.1<br>Merchant
+            <span class="logo-small"><img src="https://buybot.neocities.org/Pink%20Purple%20Modern%20Gradient%20Tech%20Logo.png" alt="BuyBot Logo"></span>
+        </h1>
+
+        <!-- Top Sellers Section -->
+        <div class="top-sellers rounded-lg p-4">
+            <h2 class="text-xl font-bold mb-5 text-white">THIS WEEK'S TOP SELLERS</h2>
+            <div class="product-grid">
+                <!-- Product Item 1: Z Flip and Z Fold -->
+                <div class="product-item rounded-lg shadow-md">
+                    <img src="https://buybot.neocities.org/img_6711%20(1).webp" alt="Z FLIP AND Z FOLD 2024" class="w-full h-40 object-cover rounded-t-lg">
+                    <div class="product-details p-3">
+                        <h3 class="text-purple-700 text-lg font-bold">Z FLIP AND Z FOLD 2024</h3>
+                        <p class="text-gray-600 text-sm">SAMGEE ELETRICS</p>
+                    </div>
+                </div>
+                <!-- Product Item 2: Stanley Cups -->
+                <div class="product-item rounded-lg shadow-md">
+                    <img src="https://buybot.neocities.org/Stanley-cups-011024-tout-7122075a1e6a46a2a2bc84faca226f54.jpg" alt="STANLEY CUPS" class="w-full h-40 object-cover rounded-t-lg">
+                    <div class="product-details p-3">
+                        <h3>STANLEY CUPS</h3>
+                        <p>MOLLY.SHOP</p>
+                    </div>
+                </div>
+                <!-- More product items can be added here following the same structure -->
+            </div>
+        </div>
+
+        <!-- Deals Section -->
+        <div class="deals-section text-center">
+            <h2 class="text-3xl font-bold text-gray-600 mb-10 tracking-wide">Deals all<br>DEZEMBA!!</h2>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="button-group px-5 mb-10">
+            <a href="merchantjoin.html" class="action-button rounded-lg text-xl font-bold transition-colors duration-300">Sell</a>
+            <a href="shop.html" class="action-button rounded-lg text-xl font-bold transition-colors duration-300">Shop</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
