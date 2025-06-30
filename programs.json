@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "title": "COSMETICS PROGRAM",
+        "description": "Learn everything about cosmetics retail.",
+        "image_url": "https://buybot.neocities.org/makeup-cosmetics.webp",
+        "duration": "3 weeks",
+        "credits": "5"
+    },
+    {
+        "id": 2,
+        "title": "FURNISHINGS PROGRAM",
+        "description": "Master the art of selling home furnishings.",
+        "image_url": "https://buybot.neocities.org/furniture-on-white-background-ai-generative-photo.jpg",
+        "duration": "4 weeks",
+        "credits": "6"
+    },
+    {
+        "id": 3,
+        "title": "The Ultimate Guide to Store Fronts",
+        "description": "Learn all you need to know about the store fronts that take customers from scrolling to shopping.",
+        "image_url": "https://buybot.neocities.org/mict-skills-academy-palanganatham-madurai-institutes-for-mobile-phone-servicing-ra5has4nri.jpg",
+        "duration": "3 week",
+        "credits": "5"
+    },
+    {
+        "id": 4,
+        "title": "The Ultimate Guide to Shipping",
+        "description": "Learn all it all from drop shipping to door to door.",
+        "image_url": "https://buybot.neocities.org/mict-skills-academy-palanganatham-madurai-institutes-for-mobile-phone-servicing-ra5has4nri.jpg",
+        "duration": "2 week",
+        "credits": "4"
+    }
+]
