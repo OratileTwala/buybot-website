@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuyBot - Create New Account</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles to match the image precisely */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcefdc; /* Light beige from the image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .container {
+            background-color: #fcefdc; /* Same as body for seamless look */
+            padding: 1.5rem; /* Padding to match spacing in image */
+            border-radius: 0.5rem; /* Slightly rounded corners */
+            text-align: center;
+            width: 90%; /* Responsive width */
+            max-width: 400px; /* Max width for desktop view */
+        }
+        .logo {
+            margin-bottom: 2rem; /* Space below logo */
+        }
+        .logo img {
+            width: 100px; /* Size of the logo */
+        }
+        h1 {
+            color: #8c4c7c; /* Purple color from the image */
+            margin-bottom: 2rem;
+            font-size: 1.875rem; /* Equivalent to 30px */
+            font-weight: bold;
+        }
+        .form-group {
+            margin-bottom: 1.25rem; /* Space between form groups */
+        }
+        .form-group label {
+            display: block;
+            text-align: center;
+            color: #6c6c6c; /* Grey color for labels */
+            margin-bottom: 0.625rem; /* Space below label */
+            font-size: 1.125rem; /* Label font size */
+            font-weight: bold;
+            text-transform: uppercase; /* Uppercase as in image */
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: calc(100% - 2.5rem); /* Full width minus padding */
+            padding: 0.9375rem 1.25rem; /* Padding inside inputs */
+            border: none;
+            border-radius: 0.3125rem; /* Rounded corners for inputs */
+            background-color: #e6c8cd; /* Light pink background for inputs */
+            color: #8c4c7c; /* Text color inside inputs */
+            font-size: 1.125rem;
+            text-align: center; /* Centered text as in image */
+            outline: none; /* Remove outline on focus */
+        }
+        input::placeholder {
+            color: #8c4c7c;
+            opacity: 0.7; /* Slightly faded placeholder */
+        }
+        .dummy-button {
+            width: calc(100% - 2.5rem); /* Match input width */
+            padding: 0.9375rem 1.25rem;
+            border: none;
+            border-radius: 0.3125rem;
+            background-color: #e6c8cd; /* Light pink background */
+            color: #8c4c7c;
+            font-size: 1.125rem;
+            text-align: center;
+            cursor: not-allowed; /* Indicate it's not interactive */
+            opacity: 0.7;
+            pointer-events: none; /* Make it completely non-interactive */
+        }
+        .signup-main-button {
+            width: 100%;
+            padding: 1rem;
+            background-color: #8c4c7c; /* Dark purple button */
+            color: white;
+            border: none;
+            border-radius: 0.3125rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none; /* Remove underline for links */
+            display: inline-block; /* Allows padding and width for link */
+            margin-top: 1.25rem;
+            transition: background-color 0.3s ease; /* Smooth hover effect */
+        }
+        .signup-main-button:hover {
+            background-color: #7a3c6b; /* Slightly darker on hover */
+        }
+        .login-link {
+            margin-top: 1.25rem;
+            color: #6c6c6c;
+            font-size: 1rem;
+        }
+        .login-link a {
+            color: #8c4c7c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container rounded-lg shadow-lg p-6 max-w-sm mx-auto">
+        <!-- BuyBot Logo -->
+        <div class="logo">
+            <img src="https://buybot.neocities.org/Pink%20Purple%20Modern%20Gradient%20Tech%20Logo.png" alt="BuyBot Logo" class="mx-auto">
+        </div>
+
+        <!-- Create New Account Title -->
+        <h1 class="text-3xl font-bold mb-8 text-purple-700">Create New Account</h1>
+
+        <!-- Name Input -->
+        <div class="form-group">
+            <label for="name" class="block text-gray-600 text-sm font-bold mb-2 uppercase">NAME</label>
+            <input type="text" id="name" placeholder="Jiah Mashaal" class="w-full p-4 bg-pink-200 text-purple-700 rounded-md text-center">
+        </div>
+
+        <!-- Email Input -->
+        <div class="form-group">
+            <label for="email" class="block text-gray-600 text-sm font-bold mb-2 uppercase">EMAIL</label>
+            <input type="email" id="email" placeholder="hello@reallygreatsite.com" class="w-full p-4 bg-pink-200 text-purple-700 rounded-md text-center">
+        </div>
+
+        <!-- Password Input -->
+        <div class="form-group">
+            <label for="password" class="block text-gray-600 text-sm font-bold mb-2 uppercase">PASSWORD</label>
+            <input type="password" id="password" value="*****" readonly class="w-full p-4 bg-pink-200 text-purple-700 rounded-md text-center">
+        </div>
+
+        <!-- Date of Birth / Dummy Sign Up Button -->
+        <div class="form-group">
+            <label for="dob" class="block text-gray-600 text-sm font-bold mb-2 uppercase">DATE OF BIRTH</label>
+            <button class="dummy-button">Sign up</button>
+        </div>
+
+        <!-- Login Link -->
+        <p class="login-link text-gray-600 text-sm">Already Registered? <a href="#" class="text-purple-700 font-bold hover:underline">Log in here.</a></p>
+
+        <!-- Main Sign Up Button -->
+        <a href="homepage.html" class="signup-main-button">Sign up</a>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuyBot - Create New Account</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles to match the image precisely */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcefdc; /* Light beige from the image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .container {
+            background-color: #fcefdc; /* Same as body for seamless look */
+            padding: 1.5rem; /* Padding to match spacing in image */
+            border-radius: 0.5rem; /* Slightly rounded corners */
+            text-align: center;
+            width: 90%; /* Responsive width */
+            max-width: 400px; /* Max width for desktop view */
+        }
+        .logo {
+            margin-bottom: 2rem; /* Space below logo */
+        }
+        .logo img {
+            width: 100px; /* Size of the logo */
+        }
+        h1 {
+            color: #8c4c7c; /* Purple color from the image */
+            margin-bottom: 2rem;
+            font-size: 1.875rem; /* Equivalent to 30px */
+            font-weight: bold;
+        }
+        .form-group {
+            margin-bottom: 1.25rem; /* Space between form groups */
+        }
+        .form-group label {
+            display: block;
+            text-align: center;
+            color: #6c6c6c; /* Grey color for labels */
+            margin-bottom: 0.625rem; /* Space below label */
+            font-size: 1.125rem; /* Label font size */
+            font-weight: bold;
+            text-transform: uppercase; /* Uppercase as in image */
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: calc(100% - 2.5rem); /* Full width minus padding */
+            padding: 0.9375rem 1.25rem; /* Padding inside inputs */
+            border: none;
+            border-radius: 0.3125rem; /* Rounded corners for inputs */
+            background-color: #e6c8cd; /* Light pink background for inputs */
+            color: #8c4c7c; /* Text color inside inputs */
+            font-size: 1.125rem;
+            text-align: center; /* Centered text as in image */
+            outline: none; /* Remove outline on focus */
+        }
+        input::placeholder {
+            color: #8c4c7c;
+            opacity: 0.7; /* Slightly faded placeholder */
+        }
+        .dummy-button {
+            width: calc(100% - 2.5rem); /* Match input width */
+            padding: 0.9375rem 1.25rem;
+            border: none;
+            border-radius: 0.3125rem;
+            background-color: #e6c8cd; /* Light pink background */
+            color: #8c4c7c;
+            font-size: 1.125rem;
+            text-align: center;
+            cursor: not-allowed; /* Indicate it's not interactive */
+            opacity: 0.7;
+            pointer-events: none; /* Make it completely non-interactive */
+        }
+        .signup-main-button {
+            width: 100%;
+            padding: 1rem;
+            background-color: #8c4c7c; /* Dark purple button */
+            color: white;
+            border: none;
+            border-radius: 0.3125rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none; /* Remove underline for links */
+            display: inline-block; /* Allows padding and width for link */
+            margin-top: 1.25rem;
+            transition: background-color 0.3s ease; /* Smooth hover effect */
+        }
+        .signup-main-button:hover {
+            background-color: #7a3c6b; /* Slightly darker on hover */
+        }
+        .login-link {
+            margin-top: 1.25rem;
+            color: #6c6c6c;
+            font-size: 1rem;
+        }
+        .login-link a {
+            color: #8c4c7c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container rounded-lg shadow-lg p-6 max-w-sm mx-auto">
+        <!-- BuyBot Logo -->
+        <div class="logo">
+            <img src="https://buybot.neocities.org/Pink%20Purple%20Modern%20Gradient%20Tech%20Logo.png" alt="BuyBot Logo" class="mx-auto">
+        </div>
+
+        <!-- Create New Account Title -->
+        <h1 class="text-3xl font-bold mb-8 text-purple-700">Create New Account</h1>
+
+        <!-- Name Input -->
+        <div class="form-group">
+            <label for="name" class="block text-gray-600 text-sm font-bold mb-2 uppercase">NAME</label>
+            <input type="text" id="name" placeholder="Jiah Mashaal" class="w-full p-4 bg-pink-200 text-purple-700 rounded-md text-center">
+        </div>
+
+        <!-- Email Input -->
+        <div class="form-group">
+            <label for="email" class="block text-gray-600 text-sm font-bold mb-2 uppercase">EMAIL</label>
+            <input type="email" id="email" placeholder="hello@reallygreatsite.com" class="w-full p-4 bg-pink-200 text-purple-700 rounded-md text-center">
+        </div>
+
+        <!-- Password Input -->
+        <div class="form-group">
+            <label for="password" class="block text-gray-600 text-sm font-bold mb-2 uppercase">PASSWORD</label>
+            <input type="password" id="password" value="*****" readonly class="w-full p-4 bg-pink-200 text-purple-700 rounded-md text-center">
+        </div>
+
+        <!-- Date of Birth / Dummy Sign Up Button -->
+        <div class="form-group">
+            <label for="dob" class="block text-gray-600 text-sm font-bold mb-2 uppercase">DATE OF BIRTH</label>
+            <button class="dummy-button">Sign up</button>
+        </div>
+
+        <!-- Login Link -->
+        <p class="login-link text-gray-600 text-sm">Already Registered? <a href="#" class="text-purple-700 font-bold hover:underline">Log in here.</a></p>
+
+        <!-- Main Sign Up Button -->
+        <a href="homepage.html" class="signup-main-button">Sign up</a>
+    </div>
+</body>
+</html>
